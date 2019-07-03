@@ -96,5 +96,5 @@ for file in file_inputs:
                     functions.sort_array(functions.concat(df_final_jumble.characters_merged, df_sorted_characters.characters)).alias("characters_merged")\
                    ).filter(is_character_subset_udf(df_final_jumble.characters_merged, df_final_jumble.final_character_jumble))
 
-    #Implemented algo for threshold greater than 600, less than several thousand
+    #Implemented algo for threshold greater than 600
     df_final_jumble.where(df_final_jumble.final_character_jumble == df_final_jumble.characters_merged).where(df_final_jumble.frequency_merged > 600).sort("frequency_merged").limit(1).show()
